@@ -4,6 +4,14 @@ class ListNode:
         self.val = val
         self.next = next
 
+def list_to_linked_list(lst):
+    dummy_head = ListNode()
+    cur = dummy_head
+    for val in lst:
+        cur.next = ListNode(val)
+        cur = cur.next
+    return dummy_head.next
+
 def spiralMatrix(m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
     num = m * n
     res = [[-1 for j in range(n)] for i in range(m)]
@@ -24,14 +32,14 @@ def test():
             "name": "example 1",
             "input": 3,
             "input2": 5,
-            "input3": [3, 0, 2, 6, 8, 1, 7, 9, 4, 2, 5, 5, 0],
+            "input3": list_to_linked_list([3, 0, 2, 6, 8, 1, 7, 9, 4, 2, 5, 5, 0]),
             "expected": [[3,0,2,6,8],[5,0,-1,-1,1],[5,2,4,9,7]]
         },
         {
             "name": "example 2",
             "input": 1,
             "input2": 4,
-            "input3": [0, 1, 2],
+            "input3": list_to_linked_list([0, 1, 2]),
             "expected": [[0,1,2,-1]]
         }
     ]
