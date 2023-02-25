@@ -1,4 +1,10 @@
-def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
+from typing import Optional, List
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+
+def spiralMatrix(m: int, n: int, head: Optional[ListNode]) -> List[List[int]]:
     num = m * n
     res = [[-1 for j in range(n)] for i in range(m)]
     x, y = 0, 0
@@ -15,29 +21,24 @@ def spiralMatrix(self, m: int, n: int, head: Optional[ListNode]) -> List[List[in
 def test():
     test_cases = [
         {
-            "name": "simple case 1",
-            "input": [1, 2, 3],
-            "expected": 2.0
+            "name": "example 1",
+            "input": 3,
+            "input2": 5,
+            "input3": [3, 0, 2, 6, 8, 1, 7, 9, 4, 2, 5, 5, 0],
+            "expected": [[3,0,2,6,8],[5,0,-1,-1,1],[5,2,4,9,7]]
         },
         {
-            "name": "simple case 2",
-            "input": [1, 2, 3, 4],
-            "expected": 2.5
-        },
-        {
-            "name": "list with one item",
-            "input": [100],
-            "expected": 100.0
-        },
-        {
-            "name": "empty list",
-            "input": [],
-            "expected": None
+            "name": "example 2",
+            "input": 1,
+            "input2": 4,
+            "input3": [0, 1, 2],
+            "expected": [[0,1,2,-1]]
         }
     ]
 
+
     for test_case in test_cases:
-        assert test_case["expected"] == average(test_case["input"]), test_case["name"]
+        assert test_case["expected"] == spiralMatrix(test_case["input"], test_case["input2"], test_case["input3"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime

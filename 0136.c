@@ -36,8 +36,8 @@ void test() {
 int main() {
     clock_t start_time = clock();
     test();
-    printf("Everything passed\n");
     clock_t end_time = clock();
+    printf("Everything passed\n");
     printf("Duration: %f seconds\n", (double)(end_time - start_time) / CLOCKS_PER_SEC);
     return 0;
 }
