@@ -23,7 +23,7 @@ sample_tree.left.right = TreeNode(5)
 sample_tree.right.left = TreeNode(6)
 sample_tree.right.right = TreeNode(7)
 
-def invertTree(self, root: TreeNode) -> TreeNode:
+def invertTree(root: TreeNode) -> TreeNode:
         if not root:
             return None
 
@@ -32,8 +32,8 @@ def invertTree(self, root: TreeNode) -> TreeNode:
         root.left = root.right
         root.right = tmp
 
-        self.invertTree(root.left)
-        self.invertTree(root.right)
+        invertTree(root.left)
+        invertTree(root.right)
         return root
 
 def printTree(node):
