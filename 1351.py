@@ -1,7 +1,7 @@
 from typing import List
 def countNegatives(grid: List[List[int]]) -> int:
     return sum(a < 0 for i in grid for a in i)
-#o(n^2)
+#O(n^2)
 
 def countNegatives1(grid):
      i = len(grid) - 1
@@ -32,7 +32,7 @@ def test():
     ]
 
     for test_case in test_cases:
-        assert test_case["expected"] == countNegatives1(test_case["input"]), test_case["name"]
+        assert test_case["expected"] == countNegatives(test_case["input"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime

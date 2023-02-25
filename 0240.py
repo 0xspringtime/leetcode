@@ -6,6 +6,8 @@ def searchMatrix(matrix, target: int) -> bool:
         if row[j] == target:
             return True
     return False
+#O(m+n) time
+#O(1) space
 
 def test():
     test_cases = [
