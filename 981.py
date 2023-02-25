@@ -1,0 +1,59 @@
+def __init__(self):
+    """
+    Initialize your data structure here.
+    """
+    self.keyStore = {}  # key : list of [val, timestamp]
+
+
+def set(self, key: str, value: str, timestamp: int) -> None:
+    if key not in self.keyStore:
+        self.keyStore[key] = []
+    self.keyStore[key].append([value, timestamp])
+
+
+def get(self, key: str, timestamp: int) -> str:
+    res, values = "", self.keyStore.get(key, [])
+    l, r = 0, len(values) - 1
+    while l <= r:
+        m = (l + r) // 2
+        if values[m][1] <= timestamp:
+            res = values[m][0]
+            l = m + 1
+        else:
+            r = m - 1
+    return res
+
+def test():
+    test_cases = [
+        {
+            "name": "simple case 1",
+            "input": [1, 2, 3],
+            "expected": 2.0
+        },
+        {
+            "name": "simple case 2",
+            "input": [1, 2, 3, 4],
+            "expected": 2.5
+        },
+        {
+            "name": "list with one item",
+            "input": [100],
+            "expected": 100.0
+        },
+        {
+            "name": "empty list",
+            "input": [],
+            "expected": None
+        }
+    ]
+
+    for test_case in test_cases:
+        assert test_case["expected"] == average(test_case["input"]), test_case["name"]
+
+if __name__ == "__main__":
+    from datetime import datetime
+    start_time = datetime.now()
+    test()
+    print("Everything passed")
+    end_time = datetime.now()
+    print('Duration: {}'.format(end_time - start_time))
