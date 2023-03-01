@@ -1,10 +1,11 @@
+from typing import Optional
 class ListNode:
     def __init__(self, x):
         self.val = x
         self.next = None
 
 
-def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
+def getIntersectionNode(headA: ListNode, headB: ListNode) -> Optional[ListNode]:
     l1, l2 = headA, headB
     while l1 != l2:
         l1 = l1.next if l1 else headB
@@ -36,7 +37,7 @@ def test():
     ]
 
     for test_case in test_cases:
-        assert test_case["expected"] == average(test_case["input"]), test_case["name"]
+        assert test_case["expected"] == getIntersectionNode(test_case["input"], test_case["input1"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime
