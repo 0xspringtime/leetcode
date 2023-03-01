@@ -1,4 +1,3 @@
-
 def cloneGraph(self, node: "Node") -> "Node":
     oldToNew = {}
 
@@ -13,5 +12,8 @@ def cloneGraph(self, node: "Node") -> "Node":
         return copy
 
     return dfs(node) if node else None
+
+#O(V+E)
+
 adjList = [[2,4],[1,3],[2,4],[1,3]]
 print(Solution().cloneGraph(1))
