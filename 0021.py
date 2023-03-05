@@ -11,7 +11,7 @@ def list_to_linked_list(lst):
         cur = cur.next
     return dummy_head.next
 
-def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
+def mergeTwoLists(list1: ListNode, list2: ListNode) -> ListNode:
     dummy = ListNode()
     tail = dummy
 
@@ -30,3 +30,6 @@ def mergeTwoLists(self, list1: ListNode, list2: ListNode) -> ListNode:
         tail.next = list2
 
     return dummy.next
+
+
+print(mergeTwoLists([1,2,4], [1,3,4]))
