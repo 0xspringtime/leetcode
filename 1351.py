@@ -32,7 +32,7 @@ def test():
     ]
 
     for test_case in test_cases:
-        assert test_case["expected"] == countNegatives(test_case["input"]), test_case["name"]
+        assert test_case["expected"] == countNegatives1(test_case["input"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime

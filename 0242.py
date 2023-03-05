@@ -30,7 +30,7 @@ def test():
     ]
 
     for test_case in test_cases:
-        assert test_case["expected"] == isAnagram1(test_case["input"], test_case["input1"]), test_case["name"]
+        assert test_case["expected"] == isAnagram(test_case["input"], test_case["input1"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime
