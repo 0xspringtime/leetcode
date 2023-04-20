@@ -1,34 +1,32 @@
-def average(L):
-    if not L:
-        return None
-    return sum(L)/len(L)
+from typing import List
+def jump(nums: List[int]) -> int:
+        l, r = 0, 0
+        res = 0
+        while r < (len(nums) - 1):
+            maxJump = 0
+            for i in range(l, r + 1):
+                maxJump = max(maxJump, i + nums[i])
+            l = r + 1
+            r = maxJump
+            res += 1
+        return res
 
 def test():
     test_cases = [
         {
             "name": "simple case 1",
-            "input": [1, 2, 3],
-            "expected": 2.0
+            "input": [2,3,1,1,4],
+            "expected": 2
         },
         {
             "name": "simple case 2",
-            "input": [1, 2, 3, 4],
-            "expected": 2.5
-        },
-        {
-            "name": "list with one item",
-            "input": [100],
-            "expected": 100.0
-        },
-        {
-            "name": "empty list",
-            "input": [],
-            "expected": None
+            "input": [2,3,0,1,4],
+            "expected": 2
         }
     ]
 
     for test_case in test_cases:
-        assert test_case["expected"] == average(test_case["input"]), test_case["name"]
+        assert test_case["expected"] == jump(test_case["input"]), test_case["name"]
 
 if __name__ == "__main__":
     from datetime import datetime
