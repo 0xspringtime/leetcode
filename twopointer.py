@@ -18,9 +18,9 @@ def two_sum(sorted_nums, target):
     # Return an indication that no pair was found
     return [-1, -1]
 
-The two-pointer technique is a very useful strategy that can be used in solving a variety of array/string problems especially those that ask for a pair of elements that satisfy certain conditions.
-
-The idea behind the two-pointer technique is that you have two pointers, usually one at the beginning and one at the end of the array/string, and you move them based on the condition that you are trying to satisfy.
+#The two-pointer technique is a very useful strategy that can be used in solving a variety of array/string problems especially those that ask for a pair of elements that satisfy certain conditions.
+#
+#The idea behind the two-pointer technique is that you have two pointers, usually one at the beginning and one at the end of the array/string, and you move them based on the condition that you are trying to satisfy.
 
 #Note that this works on a sorted array. If the array was not sorted, we'd have to sort it first which would add to the time complexity.
 
