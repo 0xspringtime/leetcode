@@ -1,4 +1,4 @@
-idef fourSumCount(nums1, nums2, nums3, nums4):
+def fourSumCount(nums1, nums2, nums3, nums4):
     # Initialize a dictionary to store the frequency of sums of pairs in nums1 and nums2
     count = {}
 
