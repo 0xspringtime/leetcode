@@ -24,3 +24,15 @@ def kWeakestRows(mat, k):
     return [-index for soldiers, index in sorted(heap)]
 #time O(m * n + m * log k)
 #space O(k)
+
+def kWeakestRows(mat, k):
+    # Step 1: Count the number of soldiers in each row
+    soldier_counts = [(sum(row), idx) for idx, row in enumerate(mat)]
+
+    # Step 2: Sort the rows based on the number of soldiers and row index
+    soldier_counts.sort(key=lambda x: (x[0], x[1]))
+
+    # Step 3: Extract the indices of the first k rows
+    weakest_rows = [idx for _, idx in soldier_counts[:k]]
+
+    return weakest_rows
