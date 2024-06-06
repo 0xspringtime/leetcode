@@ -1,3 +1,5 @@
+#time O(nm)
+#space O(1)
 #sliding window
 def strStr(haystack, needle):
     # If the needle is an empty string, return 0 according to the problem statement
