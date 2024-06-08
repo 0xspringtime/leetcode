@@ -5,7 +5,7 @@ def subsets(nums):
 
     # Loop over the numbers
     for num in nums:
-        # For each number, add it to all existing subsets to form new subsets
+     # For each number, add it to all existing subsets to form new subsets
         result += [curr + [num] for curr in result]
 
     # Return the result
