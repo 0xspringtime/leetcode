@@ -1,23 +1,34 @@
-#dynamic programming
-#BFS
-import heapq
+def minCostHomecoming(startPos, homePos, rowCosts, colCosts):
+    startRow, startCol = startPos
+    homeRow, homeCol = homePos
+    
+    # Initialize the DP table with infinity
+    m, n = len(rowCosts), len(colCosts)
+    dp = [[float('inf')] * n for _ in range(m)]
+    
+    # Set the starting position cost to 0
+    dp[startRow][startCol] = 0
+    
+    # Fill the DP table from the starting position to the home position
+    for r in range(min(startRow, homeRow), max(startRow, homeRow) + 1):
+        for c in range(min(startCol, homeCol), max(startCol, homeCol) + 1):
+            if r > startRow:
+                dp[r][c] = min(dp[r][c], dp[r-1][c] + rowCosts[r])
+            if r < homeRow:
+                dp[r][c] = min(dp[r][c], dp[r+1][c] + rowCosts[r])
+            if c > startCol:
+                dp[r][c] = min(dp[r][c], dp[r][c-1] + colCosts[c])
+            if c < homeCol:
+                dp[r][c] = min(dp[r][c], dp[r][c+1] + colCosts[c])
+    
+    return dp[homeRow][homeCol]
 
-def minCostToHome(m, n, startPos, homePos, rowCosts, colCosts):
-    # Initialize cost matrix with all infinity
-    cost = [[float('inf')] * n for _ in range(m)]
-    # Set the cost of the starting cell to 0
-    cost[startPos[0]][startPos[1]] = 0
+# Example usage:
+startPos = [1, 1]
+homePos = [2, 2]
+rowCosts = [5, 10, 20]
+colCosts = [10, 5, 15]
 
-    # Directions for movement
-    dirs = [(0, 1), (0, -1), (1, 0), (-1, 0)]  # right, left, down, up
-
-    # Priority queue for BFS, initialized with the starting cell
-    queue = [(0, startPos[0], startPos[1])]
-
-    while queue:
-        current_cost, x, y = heapq.heappop(queue)  # Pop the cell with smallest cost
-
-        # If we have reached the home cell, return its cost
-        if [x, y]
-#time O(mnlog(mn))
+print(minCostHomecoming(startPos, homePos, rowCosts, colCosts))  # Output: 25
+#time O(mn)
 #space O(mn)
